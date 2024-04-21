@@ -1,0 +1,28 @@
+###
+POST http://localhost:9000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Steven Leon",
+    "age": "30",
+    "email": "sleonva@gmail.com"
+}
+
+###
+GET http://localhost:9000/api/users HTTP/1.1
+
+###
+GET http://localhost:9000/api/users/655b88f693623801ed9c136a HTTP/1.1
+
+###
+PUT http://localhost:9000/api/users/655b8c45b687758f7aa099c7 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Sandra Suarez",
+    "age": "57",
+    "email": "sandrap1324@gmail.com"
+}
+
+###
+DELETE http://localhost:9000/api/users/655b8e0bcb53b2d3e9e840f9 HTTP/1.1

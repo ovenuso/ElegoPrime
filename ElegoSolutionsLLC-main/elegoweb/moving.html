@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <link crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <title>Elego Prime - Moving cleaning</title>
+    <link rel="shortcut icon" href="src/BWelegologo.svg"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"  rel="stylesheet">
+    <link rel="stylesheet" href="css/responsive.css"/>
+</head>
+<body>
+    <header class="header">
+        <nav class="menu">
+            <section class="menu__container">
+                <img src="src/BWelegologo.svg" class="logo">
+
+                <div class="contenedor_header">
+                    <h1>ELE<span class="yellow">G</span>O PR<span class="yellow">I</span>ME LLC</h1>
+                    <style>
+                    .yellow {
+                      color: #ffbb00;
+                    }
+                    </style>
+
+                    <h2>We love take care your place</h2>
+                </div>
+                
+                <ul class="menu__links">
+                    <li class="menu__item">
+                        <a href="index-responsive.html" class="menu__link">Home</a>
+                    </li>
+        
+                    <li class="menu__item menu__item--show">
+                        <a href="services-responsive.html" class="menu__link">All services <img src="src/arrow.svg" class="menu__arrow"></a>
+                    
+                <ul class="menu__nesting">
+                            
+                <div>
+                    <ul>
+                        <li class="menu__inside">
+                            <a href="handyman.html" class="menu__link menu__link--inside">Handyman</a>
+                        </li>
+                        <ul>
+                            <li class="lista-submenu">
+                                <a href="handyman.html">Cameras</a>
+                                <a href="handyman.html">Doorbell </a>
+                                <a href="handyman.html">TV</a>
+                                <a href="handyman.html">Cables</a>
+                                <a href="handyman.html">Fans</a>
+                                <a href="handyman.html">lamps ans lights</a>
+                                <a href="handyman.html">Sound</a>
+                                <a href="handyman.html">Videobeam</a>
+                                <a href="handyman.html">Assembling</a>
+                                <a href="handyman.html">Hanging</a>
+                                <a href="handyman.html">Faucet and toilet</a>
+                                <a href="handyman.html">Painting</a>
+                            </li>
+                        </ul>
+                    </ul>
+                
+                    <ul>
+                        <li class="menu__inside">
+                            <a href="cleaning.html" class="menu__link menu__link--inside">Cleaning</a>
+                        </li>
+                        <ul>
+                        <li class="lista-submenu">
+                            <a href="residential.html">Residential</a>
+                            <a href="moving.html">Moving</a>
+                            <a href="vacacional.html">Vacational</a>
+                            <a href="empresas.html">Companies</a>
+                            <a href="canaletas.html">Gutters</a>
+                            <a href="profundas.html">Deep cleanings</a>
+                            <a href="maquina.html">Pressure washer</a>
+                        </li>
+                        </ul>
+                    </ul>
+
+                    <ul>
+                        <li class="menu__inside">
+                            <a href="ventanas.html" class="menu__link menu__link--inside">Windows</a>
+                        </li>
+                        <ul>
+                            <li class="lista-submenu">
+                                <a href="ventanas.html">In and outside cleaning</a>
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+                </ul>
+
+                <li class="menu__item">
+                    <a href="reserve-responsive.html" class="menu__link">Reserve</a>
+                </li>
+                
+                <li class="menu__item">
+                    <a href="contact-responsive.html" class="menu__link">Contact us</a>
+                </li></li></ul>
+    
+                <div class="menu__hamburguer">
+                    <img src="src/menu.svg" class="menu__img">
+                </div>
+            </section>
+        </nav>
+        <script>
+            (function(){
+                const listElements = document.querySelectorAll('.menu__item--show');
+                const list = document.querySelector('.menu__links');
+                const menu = document.querySelector('.menu__hamburguer');
+                const addClick = ()=>{
+                    listElements.forEach(element =>{
+                        element.addEventListener('click', ()=>{
+                            
+                            let subMenu = element.children[1];
+                            let height = 0;
+                            element.classList.toggle('menu__item--active');
+            
+                            if(subMenu.clientHeight === 0){
+                                height = subMenu.scrollHeight;
+                            }
+            
+                            subMenu.style.height = `${height}px`;
+                        });
+                    });
+                }
+            
+                const deleteStyleHeight = ()=>{
+                    listElements.forEach(element=>{
+            
+                        if(element.children[1].getAttribute('style')){
+                            element.children[1].removeAttribute('style');
+                            element.classList.remove('menu__item--active');
+                        }
+                    });
+                }
+            
+                window.addEventListener('resize', ()=>{
+                    if(window.innerWidth > 800){
+                        deleteStyleHeight();
+                        if(list.classList.contains('menu__links--show'))
+                            list.classList.remove('menu__links--show');
+                    }else{
+                        addClick();
+                    }
+                });
+            
+                if(window.innerWidth <= 800){
+                    addClick();
+                }
+            
+                menu.addEventListener('click', ()=> list.classList.toggle('menu__links--show'));
+            
+            })();
+
+              
+        </script>
+
+    </header>
+
+    <div class="contenedores-servicios">
+        <h4>Move in and move out</h4>
+    </div>
+
+    <div class="info-moving">
+        <div class="sub-titles-m">
+            <h1>Move in/ <br>
+                out cleaning
+            </h1>
+        </div>
+        <p> 
+            We understand the importance of delivering a property in excellent cleaning condition to the next tenant or owner.
+            That's why Elego Solutions LLC offers a type of cleaning focused on these types of situations where the place will
+            be vacant, and therefore the cleaning needs to be more detailed. <br>
+             <br> Our general service includes cleaning of all accessible surfaces and floor cleaning: vacuuming and mopping.
+             <div class="botones-window2">
+                <a href="reserve-responsive.html" class="btn-w2">Book now</a>
+            </div>
+        </p>
+        
+        <style>
+            .info-moving {
+                width: 100%;
+                background: linear-gradient(
+                to right,
+                transparent 35% 35%,
+                #882426 35%),
+                url("img/airbnb.jpg");
+                background-size: contain;
+                transition-duration: 2s;
+            }
+        </style>
+        
+    </div>
+
+    <footer>
+        <img src="src/Welegologo.svg" class="logof">
+        <div class="pie-pagina">
+            <div class="pie-pagina-1">
+                <h3>ELEGO PRIME LLC</h3>
+                <p>Let a pro do it for you <br>
+                    Get more information<br>
+                    Get to know us
+                </p>
+            </div>
+            <div class="pie-pagina-2">
+                <h3>Company</h3>
+                <p> <a href="index-responsive.html" class="link-footer">Home</a><br>
+                    <a href="index-responsive.html" class="link-footer">About</a><br>
+                    <a href="index-responsive.html" class="link-footer">Team</a>
+                </p>
+                <div class="pie-pagina-5">
+                    <h3>Locations</h3>
+                    <p> Denver
+                        Aurora<br>
+                        Castle Rock
+                        Parker<br>
+                        Lone Tree<br>
+                        Castle Pines<br>
+                        Littleton 
+                        DTC <br>
+                        Highlands Ranch<br>
+                        Centennial
+                        Englewood
+                    </p>
+                </div>
+            </div>
+            <div class="pie-pagina-3">
+                <h3>Documentation</h3>
+                <p> <a href="index-responsive.html" class="link-footer">About us</a><br>
+                    <a href="handyman.html" class="link-footer">Handyman</a><br>
+                    <a href="cleaning.html" class="link-footer">Cleaning</a><br>
+                </p>
+            </div>
+            <div class="pie-pagina-4">
+                <h3>Social</h3>
+                <p> <img  src="src/envelope-regular.svg"><a href="mailto:elegoprime@gmail.com" class="link-footer"> elegoprime@gmail.com</a><br>
+                    <img  src="src/instagram.svg"> <a href="https://www.instagram.com/cleaningserviceselego/" class="link-footer">@cleaningserviceselego</a><br>
+                    <img  src="src/instagram.svg"> <a href="https://www.instagram.com/handymanelego/" class="link-footer">@handymanelego</a><br>
+                    <img  src="src/message-regular.svg"> Luisa Gómez: <a href="tel:(786) 490-3003" class="link-footer">(786) 490-3003</a> <br>
+                    <img  src="src/message-regular.svg"> Steven León: <a href="tel:(786) 490-3942" class="link-footer">(786) 490-3942</a>
+                </p>
+            </div>
+        </div>
+    
+    </footer>
+    
+</body>
+</html>

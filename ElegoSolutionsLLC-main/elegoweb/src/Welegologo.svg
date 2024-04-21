@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="720"
+   height="720"
+   viewBox="0 0 230.4 230.4"
+   version="1.1"
+   id="SVGRoot"
+   sodipodi:docname="Welegologo.svg"
+   inkscape:export-filename="logoi.jpg"
+   inkscape:export-xdpi="60"
+   inkscape:export-ydpi="60"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview34139"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="1"
+     inkscape:cx="328"
+     inkscape:cy="355"
+     inkscape:window-width="1920"
+     inkscape:window-height="974"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid34625"
+       originx="0"
+       originy="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs34134" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke-width:1.2304"
+       d="M 63.124234,59.29102 82.71892,38.335202 h 63.28123 l 17.34612,20.955829 -77.73633,0.308198 -0.16061,37.597211 -22.325095,21.41808 z"
+       id="path301"
+       sodipodi:nodetypes="cccccccc" />
+    <path
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke-width:1.2304"
+       d="m 62.953161,125.8671 22.477029,-21.27474 61.42295,-0.0261 16.88746,21.35963 -6.37357,-0.0294 -12.49554,-15.26387 -12.41076,15.22769 z"
+       id="path1191"
+       sodipodi:nodetypes="cccccccc" />
+    <path
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke-width:1.2304"
+       d="m 144.77225,112.97287 -5.65985,7.16013 5.62507,-2.57932 7.80715,4.9181 z"
+       id="path1193"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="display:inline;fill:#fffffb;fill-opacity:1;stroke-width:1.2304"
+       d="m 62.897091,171.07924 19.594689,20.95582 h 80.94858 L 146.24344,170.98897 85.3828,170.77102 V 130.55434 H 63.01754 Z"
+       id="path301-3"
+       sodipodi:nodetypes="cccccccc" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke-width:1.54013"
+       id="path1299"
+       cx="94.501221"
+       cy="161.74677"
+       rx="6.2967939"
+       ry="6.0137324" />
+  </g>
+</svg>
