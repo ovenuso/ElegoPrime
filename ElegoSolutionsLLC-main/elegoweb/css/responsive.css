@@ -308,7 +308,7 @@ h3{
 .contenedores-titulo-negro h4{
     color:rgb(255, 255, 255);
     font-size: 3em;
-    margin-top: 12%;
+    margin-top: 13%;
     text-align: center;
     font-family: 'Encode Sans Semi Condensed';
     transition-duration: 2s;
@@ -699,11 +699,11 @@ header{
     color: #000000;
     padding-top: 30px;
     padding-bottom: 8px;
-    font-family: 'Encode Sans Semi Condensed';    
+    font-family: 'PT Sans';    
   }
 
  p{
-    font-family: 'Encode Sans Semi Condensed';
+    font-family: 'PT Sans';
 }
 
   .right-side .input-box{
@@ -722,7 +722,7 @@ header{
     border-radius: 6px;
     padding: 0 15px;
     resize: none;
-    font-family: 'Encode Sans Semi Condensed';
+    font-family: 'PT Sans';
   }
   .right-side .message-box{
     height: 120px;
@@ -749,7 +749,7 @@ header{
     border-radius: 6px;
     background: #000000;
     cursor: pointer;
-    font-family: 'Encode Sans Semi Condensed';
+    font-family: 'PT Sans';
     transition: all 0.3s ease;
   }
   .button input[type="button"]:hover{
@@ -1199,67 +1199,6 @@ header{
     margin-right: 17%;
     transition-duration: 2;
 }
-
-.container-logos{
-    padding:15px 9%;
-    margin-top: 5%;
-    padding-bottom: 100px;
-    transition-duration: 1s;
-}
-
-.container-logos .box-container-sub{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap:20px;
-}
-
-.container-logos .box-container-sub .box-sub{
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
-    border-radius: 5px;
-    background: #ffffff;
-    text-align: center;
-    padding:30px 20px;
-    transition-duration: 0.5s;
-}
-
-.container-logos .box-container-sub .box-sub img{
-    height: 180px;
-}
-
-.container-logos .box-container-sub .box-sub h3{
-    color:#444;
-    font-size: 25px;
-    padding:10px 0;
-    font-family: 'Encode Sans Semi Condensed';
-}
-
-.container-logos .box-container-sub .box-sub .btnl{
-    margin-top: 10px;
-    display: inline-block;
-    background:#333;
-    color:#fff;
-    font-size: 17px;
-    border-radius: 5px;
-    padding: 8px 25px;
-    text-decoration: none;
-}
-
-.container-logos .box-container-sub .box-sub .btnl:hover{
-    letter-spacing: 1px;
-    transition-duration: 0.5s;
-}
-
-.container-logos .box-container-sub .box-sub:hover{
-    box-shadow: 0 10px 15px rgba(0,0,0,.3);
-    transform: scale(1.03);
-    transition-duration: 0.5s;
-}
-
-@media (max-width:508px){
-    .container-logos{
-        padding:20px;
-    }
-}
     
 .info-moving p {
     width:45%;
@@ -1560,7 +1499,7 @@ input[type=time]::-webkit-calendar-picker-indicator {
 
 .ilus-bnb {
     margin-right: 50px;
-    width: 250px;
+    width: 300px;
     transition-duration: 2s;
 }
 
@@ -1592,7 +1531,7 @@ input[type=time]::-webkit-calendar-picker-indicator {
 .btn-bnb {
     display:inline-block;
     margin-top: 20px;
-    background: linear-gradient(to bottom, #ff9036, #ffb66d);
+    background: linear-gradient(to bottom, #3f3d56, #5b5870);
     border-radius:  25px;
     padding: 14px 25px;
     color:#fff;
@@ -2222,6 +2161,17 @@ footer {
     font-family: 'PT Sans';
 }
 
+#first-dropdown {
+    margin-top: 5px;
+}
+
+#service2-id {
+    color:black;
+    font-size: 20px;
+    font-family: 'PT Sans';
+    background-color: white;
+}
+
 #date-id {
     color:black;
     font-size: 20px;
@@ -2245,6 +2195,11 @@ footer {
     color:black;
     font-size: 25px;
     font-family: 'PT Sans';
+    margin-left: -10px;
+}
+
+#zip {
+    margin-left: -10px;
 }
 
 .radio-pets {
@@ -2336,6 +2291,61 @@ footer {
   
 .about .info .icons a:hover{
     background:var(--orange);
+}
+
+.service{
+    min-height: 70vh;
+    margin-top: 5%;
+}
+  
+.service .box-container{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 0%;
+}
+  
+.service .box-container .box{
+    height:23rem;
+    width:20rem;
+    box-shadow: 0 0rem 1rem 0.5px rgba(0, 0, 0, 0.644);
+    border-left: .5rem solid #ffbb00;
+    border-right: .5rem solid #ffbb00;
+    border-radius: .5rem;
+    text-align: center;
+    padding-top: 3rem;
+    margin:2rem 2rem;
+    margin-bottom: 10%;
+}
+
+.img-box-service {
+    width: 50%;
+}
+  
+.service .box-container .box p{
+    color:#ffffff;
+    font-size: 1.5rem;
+    margin:2rem 0;
+    font-weight: bold;
+}
+
+.box-button-service{
+    background-color: #ffffff;
+    padding: 10px 40px;
+    text-decoration:none;
+    color: #333333;
+    font-weight: bolder;
+    font-family: 'PT Sans';
+    border-radius: 50px;
+    transition-duration: 0.5s;
+}
+
+.box-button-service:hover {
+    background-color: #333333;
+    transition-duration: 0.2s;
+    color: rgb(223, 223, 223);
+    outline: 2px solid #ffbb00;
 }
 
 /*----------------------------------------------------------------------------------------------------------------*/
@@ -3271,6 +3281,10 @@ footer {
         font-size: 18px;
     }
 
+    #service2-id {
+        font-size: 18px;
+    }
+
     #zip-id {
         font-size: 22px;
     }
@@ -3333,7 +3347,15 @@ footer {
         margin-left: -5%;
         line-height: 20px;
         margin-top: 100%;
-    }
+}
+
+.next-txt-2 h4 {
+    font-size: 50px;
+}
+    
+.next-txt-2-container {
+margin-top: 5%;
+}
 
 /*-----------------------------------------------------------------------------------------------------------------*/
 
@@ -3963,7 +3985,7 @@ footer {
         color: #000000;
         padding-top: 30px;
         padding-bottom: 8px;
-        font-family: 'Encode Sans Semi Condensed';    
+        font-family: 'PT Sans';    
       }
     
       .right-side .input-box{
@@ -3982,7 +4004,7 @@ footer {
         border-radius: 6px;
         padding: 0 15px;
         resize: none;
-        font-family: 'Encode Sans Semi Condensed';
+        font-family: 'PT Sans';
       }
       .right-side .message-box{
         height: 120px;
@@ -4009,7 +4031,7 @@ footer {
         border-radius: 6px;
         background: #000000;
         cursor: pointer;
-        font-family: 'Encode Sans Semi Condensed';
+        font-family: 'PT Sans';
         transition: all 0.3s ease;
       }
 
@@ -4324,6 +4346,14 @@ footer {
     }
 
 
+}
+
+.next-txt-2 h4 {
+    font-size: 30px;
+}
+    
+.next-txt-2-container {
+    margin-top: 5%;
 }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
@@ -4823,11 +4853,11 @@ footer {
         color: #000000;
         padding-top: 30px;
         padding-bottom: 8px;
-        font-family: 'Encode Sans Semi Condensed'; 
+        font-family: 'PT Sans'; 
     }
 
     p{
-        font-family: 'Encode Sans Semi Condensed';
+        font-family: 'PT Sans';
         font-size: 14px;
     }
 
@@ -4875,7 +4905,7 @@ footer {
     border-radius: 6px;
     background: #000000;
     cursor: pointer;
-    font-family: 'Encode Sans Semi Condensed';
+    font-family: 'PT Sans';
     transition: all 0.3s ease;
     }
     .button input[type="button"]:hover{
@@ -5244,43 +5274,6 @@ footer {
         transition-duration: 2;
         width: 80%;
     }
-
-    .container-logos{
-        padding:15px 9%;
-        margin-top: 5%;
-        padding-bottom: 50px;
-        transition-duration: 1s;
-    }
-
-    .container-logos .box-container-sub .box-sub img{
-        height: 150px;
-    }
-
-    .container-logos .box-container-sub .box-sub h3{
-        color:#444;
-        font-size: 20px;
-        font-family: 'Encode Sans Semi Condensed';
-    }
-
-    .container-logos .box-container-sub .box-sub{
-        box-shadow: 0 5px 10px rgba(0,0,0,.2);
-        border-radius: 5px;
-        background: #ffffff;
-        text-align: center;
-        padding:30px 20px;
-        transition-duration: 0.5s;
-    }
-
-    .container-logos .box-container-sub .box-sub .btnl{
-        margin-top: 10px;
-        display: inline-block;
-        background:#333;
-        color:#fff;
-        font-size: 14px;
-        border-radius: 5px;
-        padding: 8px 25px;
-        text-decoration: none;
-    }
         
     .info-moving p {
         width:90%;
@@ -5372,7 +5365,7 @@ footer {
         color: #000000;
         padding-top: 30px;
         padding-bottom: 8px;
-        font-family: 'Encode Sans Semi Condensed';    
+        font-family: 'PT Sans';    
       }
     
       .right-side .input-box{
@@ -5391,7 +5384,7 @@ footer {
         border-radius: 6px;
         padding: 0 15px;
         resize: none;
-        font-family: 'Encode Sans Semi Condensed';
+        font-family: 'PT Sans';
       }
       .right-side .message-box{
         height: 120px;
@@ -5418,7 +5411,7 @@ footer {
         border-radius: 6px;
         background: #000000;
         cursor: pointer;
-        font-family: 'Encode Sans Semi Condensed';
+        font-family: 'PT Sans';
         transition: all 0.3s ease;
       }
 
@@ -5661,6 +5654,9 @@ footer {
     #service-id {
         font-size: 14px;
     }
+    #service2-id {
+        font-size: 14px;
+    }
     #zip-id {
         font-size: 18px;
     }
@@ -5705,14 +5701,16 @@ footer {
     }
     .radio-op-col {
         font-size: 12px !important;
+        min-width: 100%;
     }
     #many-id{
         font-size: 18px;
-        margin-top: -40%;
+        margin-top: 0%;
     }
     .pets-sub-cont ::placeholder {
         font-size: 12px;
     }
+
 
     .sumbit-reserve {
         font-size: 12px;
@@ -5721,7 +5719,52 @@ footer {
         width: 40%;
     }
 
-}
-}
-}
+    .next-txt-2 h4 {
+        font-size: 20px;
+    }
+        
+    .next-txt-2-container {
+        margin-top: 5%;
+    }
 
+    .titulo p{
+        margin-left: 10%;
+    }
+
+    .service .box-container .box{
+        height:15.5rem;
+        width:15rem;
+        padding-top: 10%;
+        margin-bottom: 5%;
+    }
+
+    .img-box-service {
+        width: 35%;
+    }
+
+    .service .box-container .box p{
+        font-size: 1rem;
+        margin-bottom: 1.5em;
+        margin-top: 1.5em;
+    }
+
+    .box-button-service{
+        font-size: 13px;
+        background-color: #ffffff;
+        padding: 8px 25px;
+        text-decoration:none;
+        color: #333333;
+        font-weight: bolder;
+        font-family: 'PT Sans';
+        border-radius: 50px;
+        transition-duration: 0.5s;
+    }
+
+    #first-dropdown option {
+        padding: 5px;
+        font-size: 14px;
+        color: #f43636;
+    }
+}
+}
+}

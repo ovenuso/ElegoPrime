@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const cors = require('cors');
 const morgan = require('morgan'); // Importa morgan
+const multer = require('multer'); // Importa multer
+const upload = multer(); // Configura multer para manejar solo los campos de texto
 const { timeStamp, time } = require('console');
 const userRoutes = require("./routes/users");
 
@@ -13,7 +15,7 @@ mongoose.set('debug', true);
 require("dotenv").config();
 
 const app = express();
-const port = 5500;
+const PORT = process.env.PORT || 3000;
 const ruta = '/ElegoSolutionsLLC-main/elegoweb/reserve-responsive.html';
 
 const urlCompleta = `http://127.0.0.1:5500/ElegoSolutionsLLC-main/elegoweb/reserve-responsive.html`;
@@ -29,7 +31,7 @@ app.use('/api', userRoutes);
 
 // Middleware CORS para permitir solicitudes desde 127.0.0.1:5500
 app.use(cors({
-  origin: 'http://127.0.0.1:5500/ElegoSolutionsLLC-main/elegoweb/reserve-responsive.html'
+    origin: 'http://127.0.0.1:5500'
 }));
 
 //routes
@@ -37,7 +39,7 @@ app.use('/api', userRoutes);
 
 // mongodb connection
 mongoose
-    .connect("mongodb+srv://admin:elegoprime@cluster0.8fhl17a.mongodb.net/ElegoPrime")
+    .connect("mongodb+srv://elegosolutionsllc:elegosolutions@cluster0.apucc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
     .then(() => {
         console.log("Conexión a MongoDB Atlas establecida");
     })
@@ -53,6 +55,7 @@ const documentoSchema = new mongoose.Schema({
     correo: String,
     number: String,
     servicios: Array,
+    subservicios: Array,
     zip: String,
     bdate: Date,
     time: String,
@@ -64,12 +67,12 @@ const documentoSchema = new mongoose.Schema({
 const Documento = mongoose.model('Documento', documentoSchema);
 
 //conexion frontend - Ruta para manejar la inserción de datos
-app.post('/insertar', (req, res) => {
+app.post('/insertar', upload.none(), (req, res) => {
     console.log('Recibida solicitud POST en la ruta /insertar');
     console.log('Datos recibidos:', req.body); // Agregar este registro para verificar los datos recibidos
 
 // Campos específicos
-const { first_name, address, correo, number, servicios, zip, bdate, time, numbertime, number2 } = req.body;
+const { first_name, address, correo, number, servicios, subservicios, zip, bdate, time, numbertime, number2 } = req.body;
 
 //Registros para demás campos "depurar"
 console.log('Valor de first_name:', first_name);
@@ -77,6 +80,7 @@ console.log('Valor de address:', address);
 console.log('Valor de correo:', correo);
 console.log('Valor de number:', number);
 console.log('Valor de servicios:', servicios);
+console.log('Valor de subservicios:', subservicios);
 console.log('Valor de zip:', zip);
 console.log('Valor de bdate:', bdate);
 console.log('Valor de time:', time);
@@ -85,16 +89,17 @@ console.log('Valor de correo:', number2);
 
 // Crear un nuevo documento utilizando el modelo
 const nuevoDocumento = new Documento({
-    first_name: req.body.first_name,
-    address: req.body.address,
-    correo:  req.body.correo,
-    number: req.body.number,
-    servicios:  req.body.servicios,
-    zip: req.body.zip,
-    bdate: req.body.bdate,
-    time: req.body.time,
-    numbertime: req.body.numbertime,
-    number2: req.body.number2
+    first_name,
+    address,
+    correo,
+    number,
+    servicios,
+    subservicios,
+    zip,
+    bdate,
+    time,
+    numbertime,
+    number2
 });
 
 // Guardar el documento en la base de datos
@@ -109,4 +114,6 @@ nuevoDocumento.save()
     });
 });
 
-app.listen(port, '127.0.0.1', () => console.log('server listening on port', urlCompleta));
+app.listen(PORT, '127.0.0.1', () => {
+    console.log(`Servidor escuchando en http://127.0.0.1:${PORT}`);
+});

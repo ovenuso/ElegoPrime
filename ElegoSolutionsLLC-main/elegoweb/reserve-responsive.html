@@ -63,7 +63,7 @@
                 <div>
                     <ul class="table">
                         <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside" id="handytit">Handyman</a>
+                            <a href="handyman.html" class="menu__link menu__link--inside" id="handytit">Handyman</a>
                         </li>
                         <ul>
                             <li class="lista-submenuR" id="handylist">
@@ -72,7 +72,7 @@
                               <a href="handyman.html">TV</a>
                               <a href="handyman.html">Cables</a>
                               <a href="handyman.html">Fans</a>
-                              <a href="handyman.html">lamps ans lights</a>
+                              <a href="handyman.html">Lamps and lights</a>
                               <a href="handyman.html">Sound</a>
                               <a href="handyman.html">Videobeam</a>
                               <a href="handyman.html">Assembling</a>
@@ -85,7 +85,7 @@
                 
                     <ul  class="table">
                         <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside" id="cleantit">Cleaning</a>
+                            <a href="cleaning.html" class="menu__link menu__link--inside" id="cleantit">Cleaning</a>
                         </li>
                         <ul>
                         <li class="lista-submenuR" id="cleanlist">
@@ -226,26 +226,130 @@
                       </div>
                     </div>
                     <div class="input-field col s6">
-                        <select id="servicios" name="servicios" multiple class="validate" required>
-                            <option disabled selected>Select</option>
-                            <option value="Handyman">Handyman</option>
-                            <option value="Cleaning">Cleaning</option>
-                            <option value="Windows">Windows</option>
-                          </select>
-                        <label id="service-id" for="servicios">Service you want</label>
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function() {
-                                var sel=document.querySelectorAll ('select');
-                                M.FormSelect.init(sel)
-                              });
-                        </script>
-                      </div>
-                      <div class="input-field col s6">
                         <input  placeholder="Enter zip number" id="zip" name="zip" type="text" class="validate" required>
                         <label for="zip"  id="zip-id">Zip number</label>
-                      </div>
-                </div>
-              </div>
+                    </div>
+                    <div class="input-field col s6">
+                        <!-- Primer Dropdown -->
+                        <div id="first-dropdown">
+                            <select id="servicios" name="servicios" trype="array" multiple class="validate" required>
+                                <option value="" disabled hidden >Select</option>
+                                <option value="Handyman">Handyman</option>
+                                <option value="Cleaning">Cleaning</option>
+                                <option value="Windows">Windows</option>
+                            </select>
+
+                            <label id="service-id" for="servicios">Service you want</label>
+                        </div>
+
+                        <!-- Segundo Dropdown -->
+                        <div id="nested-dropdown" class="nested-dropdown">
+                            <select id="subservicios" name="subservicios" type="array" multiple class="validate" required>
+                                <option value="Handyman">Cameras</option>
+                                <option value="Handyman">Doorbell</option>
+                                <option value="Handyman">TV</option>
+                                <option value="Handyman">Cables</option>
+                                <option value="Handyman">Fans</option>
+                                <option value="Handyman">Lamps and lights</option>
+                                <option value="Handyman">Sound</option>
+                                <option value="Handyman">Videobeam</option>
+                                <option value="Handyman">Assembling</option>
+                                <option value="Handyman">Hanging</option>
+                                <option value="Handyman">Faucet and toilet</option>
+                                <option value="Handyman">Painting</option>
+
+                                <option value="Cleaning">Residential</option>
+                                <option value="Cleaning">Moving</option>
+                                <option value="Cleaning">Vacational</option>
+                                <option value="Cleaning">Companies</option>
+                                <option value="Cleaning">Gutters</option>
+                                <option value="Cleaning">Deep cleanings</option>
+                                <option value="Cleaning">Pressure washer</option>
+
+                                <option value="Windows">In and outside cleaning</option>
+
+                            </select>
+
+                            <label id="service2-id" for="subservicios">Select specific service</label>
+                        </div>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+
+                                    var sel = document.querySelectorAll('select');
+                                    M.FormSelect.init(sel);
+                        
+                                    var mainSelect = document.getElementById('servicios');
+                                    var nestedDropdown = document.getElementById('nested-dropdown');
+                                    var subSelect = document.getElementById('subservicios');
+                        
+                                    // Define las opciones para el segundo dropdown
+                                    var options = {
+                                        Handyman: `
+                                            <option value="Cameras">Cameras</option>
+                                            <option value="Doorbell">Doorbell</option>
+                                            <option value="TV">TV</option>
+                                            <option value="Cables">Cables</option>
+                                            <option value="Fans">Fans</option>
+                                            <option value="Lamps and lights">Lamps and lights</option>
+                                            <option value="Sound">Sound</option>
+                                            <option value="Videobeam">Videobeam</option>
+                                            <option value="Assembling">Assembling</option>
+                                            <option value="Hanging">Hanging</option>
+                                            <option value="Faucet and toilet">Faucet and toilet</option>
+                                            <option value="Painting">Painting</option>
+                                        `,
+                                        Cleaning: `
+                                            <option value="Residential">Residential</option>
+                                            <option value="Moving">Moving</option>
+                                            <option value="Vacational">Vacational</option>
+                                            <option value="Companies">Companies</option>
+                                            <option value="Gutters">Gutters</option>
+                                            <option value="Deep cleanings">Deep cleanings</option>
+                                            <option value="Pressure washer">Pressure washer</option>
+                                        `,
+                                        Windows: `
+                                            <option value="In and outside cleaning">In and outside cleaning</option>
+                                        `
+                                    };
+                        
+                                    mainSelect.addEventListener('change', function() {
+                                        var selectedValues = Array.from(this.selectedOptions).map(option => option.value);
+                                        var optionsToDisplay = selectedValues.flatMap(value => options[value] ? options[value].split('\n') : []);
+                        
+                                        if (optionsToDisplay.length > 0) {
+                                            subSelect.innerHTML = optionsToDisplay.join('\n');
+                                            nestedDropdown.style.display = 'block';
+                                            M.FormSelect.init(subSelect); // Re-inicializa el segundo select
+                                        } else {
+                                            subSelect.innerHTML = '';
+                                            nestedDropdown.style.display = 'none';
+                                        }
+                                    });
+                                });
+
+                                
+                            </script>
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    var sel=document.querySelectorAll ('select');
+                                    M.FormSelect.init(sel)
+                                  });
+                            </script>
+                            
+
+                            <style>
+                                /* Oculta el dropdown anidado por defecto */
+                                .nested-dropdown {
+                                    display: none;
+                                    margin-top: 10px;
+                                }
+                            </style>
+            </div>
+        </div>
+    </div>              
+                        
+                    
         </section>
     
     <div class="G-container">
@@ -345,7 +449,7 @@
                 // Agregar registro de depuración para verificar los datos antes de enviar el formulario
                 console.log('Datos a enviar:', formData);
                 
-                fetch('/insertar', {
+                fetch('http://127.0.0.1:3000/insertar', { // verificar que sea la URL  correcta
                     method: 'POST',
                     body: formData
                 })
@@ -375,8 +479,8 @@
             <div class="pie-pagina-1">
                 <h3 class="title-footer">ELEGO PRIME LLC</h3>
                 <p>Let a pro do it for you <br>
-                    Get more information<br>
-                    Get to know us
+                    <a href="services-responsive.html" class="link-footer">Get more inforation</a><br>
+                <a href="index-responsive.html" class="link-footer">Get to know us</a><br>
                 </p>
             </div>
             <div class="pie-pagina-2">
@@ -406,6 +510,8 @@
                 <p> <a href="index-responsive.html" class="link-footer">About us</a><br>
                     <a href="handyman.html" class="link-footer">Handyman</a><br>
                     <a href="cleaning.html" class="link-footer">Cleaning</a><br>
+                    <a href="contact-responsive.html" class="link-footer">Contact us</a><br>
+                <a href="reserve-responsive.html" class="link-footer">Reserve</a><br>
                 </p>
             </div>
             <div class="pie-pagina-4">
