@@ -43,24 +43,9 @@ app.get('/', (req, res) => {
 });
 
 // Ruta para servir archivos HTML dinámicamente
-app.get('/page/*', (req, res) => {
-    const filePath = path.join(__dirname, 'elegoweb', req.params[0]);
-
-    // Validar extensión del archivo
-    const allowedExtensions = ['.html'];
-    const ext = path.extname(filePath);
-
-    if (!allowedExtensions.includes(ext)) {
-        return res.status(400).send('Tipo de archivo no permitido');
-    }
-
-    // Verificar que la ruta esté dentro de la carpeta elegoweb
-    if (!filePath.startsWith(path.join(__dirname, 'elegoweb'))) {
-        return res.status(403).send('Acceso denegado');
-    }
-
-    // Servir el archivo
-    res.sendFile(filePath, err => {
+// Ruta para la página principal (index.html)
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'elegoweb', 'index-responsive.html'), err => {
         if (err) {
             console.error('Error al servir el archivo:', err);
             res.status(404).send('Archivo no encontrado');
