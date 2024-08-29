@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx nodemon js/index.js",
-    "init": "nodemon js/app.js",
+    "init": "npx nodemon js/app.js",
     "postinstall": "chmod +x ./node_modules/.bin/nodemon"
   },
   "keywords": [],
