@@ -33,27 +33,10 @@ app.use(cors({
 
 //
 
-app.get('/', (req, res) => {
-    const filePath = path.join(__dirname, '..', 'elegoweb', 'index-responsive.html');
-    res.sendFile(filePath, err => {
-        if (err) {
-            console.error('Error al servir el archivo:', err);
-            res.status(404).send('Archivo no encontrado');
-        }
-    });
-});
-
 // Ruta para servir archivos HTML
 app.get('/:name', (req, res) => {
     const fileName = req.params.name;
-    const allowedExtensions = ['.html'];
-    const ext = path.extname(fileName);
-
-    if (!allowedExtensions.includes(ext)) {
-        return res.status(400).send('Tipo de archivo no permitido');
-    }
-
-    const filePath = path.join(__dirname, 'elegoweb', fileName);
+    const filePath = path.join(__dirname, '..', 'elegoweb', fileName); // Asegúrate de apuntar a la carpeta correcta
 
     res.sendFile(filePath, err => {
         if (err) {
