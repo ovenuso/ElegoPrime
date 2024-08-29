@@ -111,6 +111,11 @@ nuevoDocumento.save()
     });
 });
 
+// Ruta raíz
+app.get('/', (req, res) => {
+    res.send('¡Servidor funcionando!');
+});
+
 // Comentario de env
 console.log('MONGODB_URI:', process.env.MONGODB_URI);
 console.log('EMAIL_USER:', process.env.EMAIL_USER);
