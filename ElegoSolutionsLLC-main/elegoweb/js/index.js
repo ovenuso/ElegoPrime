@@ -34,7 +34,7 @@ app.use(cors({
 //
 
 app.get('/', (req, res) => {
-    const filePath = path.join(__dirname, 'elegoweb', 'index-responsive.html');
+    const filePath = path.join(__dirname, '..', 'elegoweb', 'index-responsive.html');
     res.sendFile(filePath, err => {
         if (err) {
             console.error('Error al servir el archivo:', err);
@@ -43,13 +43,9 @@ app.get('/', (req, res) => {
     });
 });
 
-
 // Ruta para servir archivos HTML
-app.get('/page/:name', (req, res) => {
+app.get('/:name', (req, res) => {
     const fileName = req.params.name;
-    const filePath = path.join(__dirname, 'elegoweb', fileName);
-
-    // Validar extensión del archivo
     const allowedExtensions = ['.html'];
     const ext = path.extname(fileName);
 
@@ -57,12 +53,8 @@ app.get('/page/:name', (req, res) => {
         return res.status(400).send('Tipo de archivo no permitido');
     }
 
-    // Verificar que la ruta esté dentro de la carpeta elegoweb
-    if (!filePath.startsWith(path.join(__dirname, 'elegoweb'))) {
-        return res.status(403).send('Acceso denegado');
-    }
+    const filePath = path.join(__dirname, 'elegoweb', fileName);
 
-    // Servir el archivo
     res.sendFile(filePath, err => {
         if (err) {
             console.error('Error al servir el archivo:', err);
@@ -70,7 +62,6 @@ app.get('/page/:name', (req, res) => {
         }
     });
 });
-
 
 // mongodb connection
 mongoose
