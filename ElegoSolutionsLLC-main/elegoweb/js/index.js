@@ -32,10 +32,11 @@ app.use(cors({
 }));
 
 // Ruta para servir archivos HTML
-app.get('/page/:name', (req, res) => {
-    const fileName = req.params.name;
+app.get('*', (req, res) => {
+    // Si la ruta es la raíz, sirve index-responsive.html
+    const fileName = req.path === '/' ? 'index-responsive.html' : req.path;
 
-    // Validar extensión del archivo
+    // Valida la extensión del archivo
     const allowedExtensions = ['.html'];
     const ext = path.extname(fileName);
 
@@ -45,12 +46,12 @@ app.get('/page/:name', (req, res) => {
 
     const filePath = path.join(__dirname, 'elegoweb', fileName);
 
-    // Verificar que la ruta esté dentro de la carpeta elegoweb
+    // Verifica que la ruta esté dentro de la carpeta elegoweb
     if (!filePath.startsWith(path.join(__dirname, 'elegoweb'))) {
         return res.status(403).send('Acceso denegado');
     }
 
-    // Servir el archivo
+    // Sirve el archivo
     res.sendFile(filePath, err => {
         if (err) {
             console.error('Error al servir el archivo:', err);
