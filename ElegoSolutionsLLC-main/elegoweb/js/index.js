@@ -31,14 +31,24 @@ app.use(cors({
     origin: '*'
 }));
 
-// Ruta para servir archivos HTML
-app.get('/page/:name', (req, res) => {
-    const fileName = req.params.name;
-    const filePath = path.join(__dirname, 'elegoweb', fileName);
+
+// Ruta para la página principal (index.html)
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'elegoweb', 'index-responsive.html'), err => {
+        if (err) {
+            console.error('Error al servir el archivo:', err);
+            res.status(404).send('Archivo no encontrado');
+        }
+    });
+});
+
+// Ruta para servir archivos HTML dinámicamente
+app.get('/page/*', (req, res) => {
+    const filePath = path.join(__dirname, 'elegoweb', req.params[0]);
 
     // Validar extensión del archivo
     const allowedExtensions = ['.html'];
-    const ext = path.extname(fileName);
+    const ext = path.extname(filePath);
 
     if (!allowedExtensions.includes(ext)) {
         return res.status(400).send('Tipo de archivo no permitido');
@@ -137,7 +147,7 @@ nuevoDocumento.save()
 
 // Ruta raíz
 app.get('/', (req, res) => {
-    res.send('¡Servidor funcionando!');
+    res.send('Servidor funcionando');
 });
 
 // Comentario de env
