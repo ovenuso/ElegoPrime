@@ -22,7 +22,7 @@ app.post('/send-email', (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER, // Usar variable de entorno para el remitente
-    to: 'elegoprime@gmail.com',
+    to: 'elegoprimeo@gmail.com',
     subject: `Mensaje de ${name} (${email})`,
     text: message
   };
