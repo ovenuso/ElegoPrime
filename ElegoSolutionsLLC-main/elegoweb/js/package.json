@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npx nodemon js/index.js",
-    "init": "npx nodemon js/app.js",
-    "postinstall": "chmod +x ./node_modules/.bin/nodemon"
+    "start": "node index.js",
+    "init": "npx nodemon js/app.js"
   },
   "keywords": [],
   "author": "",
