@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node js/index.js",
+    "start": "nodemon js/index.js",
     "init": "nodemon js/app.js"
   },
   "keywords": [],
@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.4"
   },
   "description": ""
 }
