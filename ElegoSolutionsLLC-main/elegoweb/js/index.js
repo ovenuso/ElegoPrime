@@ -34,8 +34,10 @@ app.use(cors({
 //routes
 app.use('/api', userRoutes);
 
-// Servir archivos estáticos desde la carpeta 'elegoweb'
-app.use(express.static(path.join(__dirname, 'elegoweb')));
+// Ruta para servir el archivo HTML principal
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'elegoweb', 'index-responsive.html'));
+});
 
 // mongodb connection
 mongoose
