@@ -118,6 +118,6 @@ console.log('EMAIL_PASS:', process.env.EMAIL_PASS);
 console.log('PORT:', process.env.PORT);
 
 
-app.listen(PORT, '127.0.0.1', () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Servidor escuchando en:${PORT}`);
 });
