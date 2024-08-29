@@ -28,12 +28,35 @@ app.use('/api', userRoutes);
 
 // Middleware CORS para permitir solicitudes desde 127.0.0.1:5500
 app.use(cors({
-    origin: 'http://127.0.0.1:5500'
+    origin: '*'
 }));
 
-// Ruta para servir el archivo HTML principal
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index-responsive.html'));
+// Ruta para servir archivos HTML
+app.get('/page/:name', (req, res) => {
+    const fileName = req.params.name;
+
+    // Validar extensión del archivo
+    const allowedExtensions = ['.html'];
+    const ext = path.extname(fileName);
+
+    if (!allowedExtensions.includes(ext)) {
+        return res.status(400).send('Tipo de archivo no permitido');
+    }
+
+    const filePath = path.join(__dirname, 'elegoweb', fileName);
+
+    
+    if (!filePath.startsWith(path.join(__dirname, 'elegoweb'))) {
+        return res.status(403).send('Acceso denegado');
+    }
+
+    // Servir el archivo
+    res.sendFile(filePath, err => {
+        if (err) {
+            console.error('Error al servir el archivo:', err);
+            res.status(404).send('Archivo no encontrado');
+        }
+    });
 });
 
 // mongodb connection
