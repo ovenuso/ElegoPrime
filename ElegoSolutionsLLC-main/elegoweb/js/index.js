@@ -18,9 +18,6 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const ruta = '/ElegoSolutionsLLC-main/elegoweb/reserve-responsive.html';
 
-const urlCompleta = `http://127.0.0.1:5500/ElegoSolutionsLLC-main/elegoweb/reserve-responsive.html`;
-console.log("Url completa", urlCompleta);
-
 // Middleware morgan para el registro de solicitudes
 app.use(morgan('dev'));
 
