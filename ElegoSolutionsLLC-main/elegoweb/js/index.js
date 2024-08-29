@@ -31,12 +31,9 @@ app.use(cors({
     origin: 'http://127.0.0.1:5500'
 }));
 
-//routes
-app.use('/api', userRoutes);
-
 // Ruta para servir el archivo HTML principal
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'elegoweb', 'index-responsive.html'));
+    res.sendFile(path.join(__dirname, 'index-responsive.html'));
 });
 
 // mongodb connection
