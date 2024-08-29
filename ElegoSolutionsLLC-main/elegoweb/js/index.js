@@ -45,7 +45,7 @@ app.get('/page/:name', (req, res) => {
 
     const filePath = path.join(__dirname, 'elegoweb', fileName);
 
-    
+    // Verificar que la ruta esté dentro de la carpeta elegoweb
     if (!filePath.startsWith(path.join(__dirname, 'elegoweb'))) {
         return res.status(403).send('Acceso denegado');
     }
