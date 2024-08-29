@@ -1,39 +1,32 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+require('dotenv').config(); // Cargar variables de entorno
 
 const app = express();
 const PORT = process.env.PORT || 5500;
 
-const urlCompleta = `http://127.0.0.1:5500/ElegoSolutionsLLC-main/elegoweb/contact-responsive.html`;
-console.log("Url completa", urlCompleta);
-
-// Configurar nodemailer
 const transporter = nodemailer.createTransport({
-  service: 'Gmail', // Proveedor de correo electrónico
+  service: 'Gmail',
   auth: {
-    user: 'elegoprime@gmail.com', // Dirección de correo electrónico
-    pass: 'tupassword' // Contraseña de correo electrónico
+    user: process.env.EMAIL_USER, // Usar variable de entorno para el usuario de correo
+    pass: process.env.EMAIL_PASS  // Usar variable de entorno para la contraseña del correo
   }
 });
 
-// Middleware para analizar las solicitudes JSON
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Ruta POST para manejar el envío del formulario
 app.post('/send-email', (req, res) => {
   const { name, email, message } = req.body;
 
-  // Configurar el correo electrónico
   const mailOptions = {
-    from: 'tucorreo@gmail.com', // Dirección de correo electrónico
-    to: 'elegoprimeo@gmail.com', // Dirección a la que se envia el correo
+    from: process.env.EMAIL_USER, // Usar variable de entorno para el remitente
+    to: 'elegoprime@gmail.com',
     subject: `Mensaje de ${name} (${email})`,
     text: message
   };
 
-  // Enviar el correo electrónico
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.log(error);
@@ -45,5 +38,4 @@ app.post('/send-email', (req, res) => {
   });
 });
 
-// Iniciar el servidor
-app.listen(PORT, '127.0.0.1', () => console.log('server listening on port', urlCompleta));
+app.listen(PORT, () => console.log(`Servidor escuchando en el puerto ${PORT}`));

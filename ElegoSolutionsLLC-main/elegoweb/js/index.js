@@ -39,7 +39,7 @@ app.use('/api', userRoutes);
 
 // mongodb connection
 mongoose
-    .connect("mongodb+srv://elegosolutionsllc:elegosolutions@cluster0.apucc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+    .connect(process.env.MONGODB_URI)
     .then(() => {
         console.log("Conexión a MongoDB Atlas establecida");
     })
@@ -113,6 +113,12 @@ nuevoDocumento.save()
         res.status(500).send('Error interno del servidor');
     });
 });
+
+// Comentario de env
+console.log('MONGODB_URI:', process.env.MONGODB_URI);
+console.log('EMAIL_USER:', process.env.EMAIL_USER);
+console.log('PORT:', process.env.PORT);
+
 
 app.listen(PORT, '127.0.0.1', () => {
     console.log(`Servidor escuchando en http://127.0.0.1:${PORT}`);
