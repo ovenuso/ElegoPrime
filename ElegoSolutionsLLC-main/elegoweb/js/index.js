@@ -31,21 +31,27 @@ app.use(cors({
     origin: '*'
 }));
 
-// Servir archivos estáticos desde la carpeta elegoweb
-app.use('/static', express.static(path.join(__dirname, 'elegoweb')));
+// Servir archivos estáticos desde el nivel superior de 'elegoweb'
+app.use(express.static(path.join(__dirname, '..')));
 
-// Ruta dinámica para servir archivos HTML
-app.get('/:page', (req, res) => {
-    const page = req.params.page;
-    const filePath = path.join(__dirname, 'elegoweb', `${page}.html`);
+// Ruta para servir archivos HTML directamente
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'index-responsive.html'));
+});
 
-    // Validar que la extensión del archivo sea HTML
-    if (path.extname(filePath) !== '.html') {
+app.get('/:fileName', (req, res) => {
+    const fileName = req.params.fileName;
+    const filePath = path.join(__dirname, '..', fileName);
+
+    // Verificar que el archivo tenga la extensión correcta y exista
+    const allowedExtensions = ['.html'];
+    const ext = path.extname(filePath);
+
+    if (!allowedExtensions.includes(ext)) {
         return res.status(400).send('Tipo de archivo no permitido');
     }
 
-    // Servir el archivo
-    res.sendFile(filePath, err => {
+    res.sendFile(filePath, (err) => {
         if (err) {
             console.error('Error al servir el archivo:', err);
             res.status(404).send('Archivo no encontrado');
